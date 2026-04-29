@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -35,8 +37,14 @@ android {
         targetCompatibility = Versions.javaVersion
     }
 
-    kotlinOptions {
+/*    kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.time.ExperimentalTime"
+    }*/
+
+    kotlin{
+        compilerOptions{
+            optIn.add("kotlin.time.ExperimentalTime")
+        }
     }
 
     lint {
